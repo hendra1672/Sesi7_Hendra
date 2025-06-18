@@ -1,0 +1,334 @@
+{
+  "stats": {
+    "suites": 7,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-06-18T16:55:58.118Z",
+    "end": "2025-06-18T16:56:00.618Z",
+    "duration": 2500,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0f16ddb8-8bc3-4be7-b7a6-905e53e7abc8",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b7753f8b-d10a-42ee-8d31-0e3bfa1d84c5",
+          "title": "Feature Reqres",
+          "fullFile": "C:\\ZMini BootCamp\\Sesi 7\\Sesi7_Hendra\\tests\\delete.js",
+          "file": "\\tests\\delete.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "DELETE Reqres",
+              "fullTitle": "Feature Reqres DELETE Reqres",
+              "timedOut": false,
+              "duration": 1085,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await fetch(\"https://reqres.in/api/users/2\", {\n    method: \"DELETE\", \n    headers: {\n        \"x-api-key\": \"reqres-free-v1\",\n        \"Content-Type\": \"application/json\",\n    },\n});\n//cek respons status\nconsole.log(\"Response Status:\", response.status);\nassert.strictEqual(response.status, 204, \"204\");\n\n//cek bodytext kosong\nconst responseBodyText = await response.text();\nassert.strictEqual(responseBodyText, \"\", \"\");\n//cek text kosong\nconst responseText = await response.text();\nassert.strictEqual(responseText.length, 0, \"()\");\n//cek header kososng\nconst contentTypeHeader = response.headers.get(\"content-type\");\nassert.strictEqual(contentTypeHeader, null, \"\");",
+              "err": {},
+              "uuid": "b55ea070-6e4a-455b-af53-31a8627070f9",
+              "parentUUID": "b7753f8b-d10a-42ee-8d31-0e3bfa1d84c5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b55ea070-6e4a-455b-af53-31a8627070f9"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1085,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "5a012476-d005-47e7-b231-71fbcf39a8b6",
+          "title": "Feature Reqres",
+          "fullFile": "C:\\ZMini BootCamp\\Sesi 7\\Sesi7_Hendra\\tests\\get.js",
+          "file": "\\tests\\get.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "GET Reqres",
+              "fullTitle": "Feature Reqres GET Reqres",
+              "timedOut": false,
+              "duration": 61,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await fetch(\"https://reqres.in/api/users?page=2\", {\n    method: \"GET\",\n    headers: {\n       \"x-api-key\": \"reqres-free-v1\",\n       \"Content-Type\": \"application/json\",\n    },\n})\n    \n//menyimpan response\nconst data = await response.json();\nconsole.log(data);\n//cek code respone yang dihasilkan harus 200\nassert.strictEqual(response.status, 200);\n//kita punya data pada hal 2 tapi kita cek di halaman 3\nassert.strictEqual(data.page, 2);\n//Cek data array ke 1 dengan id = 7\nassert.strictEqual(data.data[0].id, 7);\n//cek data email array ke 1 dengan nama michael\nassert.strictEqual(data.data[0].email, \"michael.lawson@reqres.in\");",
+              "err": {},
+              "uuid": "135aac42-3d19-43f1-8573-9faa5921f4fd",
+              "parentUUID": "5a012476-d005-47e7-b231-71fbcf39a8b6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "135aac42-3d19-43f1-8573-9faa5921f4fd"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 61,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "e9b9d0d6-776f-4ef2-8ccd-b8fd3f60a51b",
+          "title": "Feature Reqres",
+          "fullFile": "C:\\ZMini BootCamp\\Sesi 7\\Sesi7_Hendra\\tests\\patch.js",
+          "file": "\\tests\\patch.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "PATCH Reqres",
+              "fullTitle": "Feature Reqres PATCH Reqres",
+              "timedOut": false,
+              "duration": 429,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await fetch(\"https://reqres.in/api/users/2\", {\n    method: \"PATCH\",\n    headers: {\n       \"x-api-key\": \"reqres-free-v1\",\n       \"Content-Type\": \"application/json\",\n    },\n    body: JSON.stringify({\n        name: \"morpheus\",\n        job: \"zion resident\",\n    }),\n});\nconst data = await response.json();\nconsole.log(data);\n//cek code respone yang dihasilkan harus 200\nassert.strictEqual(response.status, 200);\n//cek nama\nassert.strictEqual(data.name, \"morpheus\");\n    \n//cek job\nassert.strictEqual(data.job, \"zion resident\");",
+              "err": {},
+              "uuid": "1472a459-8ae9-422c-92b3-0b0b93307ace",
+              "parentUUID": "e9b9d0d6-776f-4ef2-8ccd-b8fd3f60a51b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1472a459-8ae9-422c-92b3-0b0b93307ace"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 429,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "c473a901-a8f3-4d1d-982e-777afda5e0a8",
+          "title": "Feature Reqres",
+          "fullFile": "C:\\ZMini BootCamp\\Sesi 7\\Sesi7_Hendra\\tests\\post.js",
+          "file": "\\tests\\post.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "POST Reqres",
+              "fullTitle": "Feature Reqres POST Reqres",
+              "timedOut": false,
+              "duration": 413,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await fetch(\"https://reqres.in/api/users\", {\n    method: \"POST\",\n    headers: {\n       \"x-api-key\": \"reqres-free-v1\",\n       \"Content-Type\": \"application/json\",\n    },\n    body: JSON.stringify({\n        name: \"shinta\",\n        job: \"leader\",\n    }),\n});\nconst data = await response.json();\nconsole.log(data);\n//bawaan\nassert.strictEqual(response.status, 201);\n//cek nama\nassert.strictEqual(data.name, \"shinta\");\n            \n//cek job\nassert.strictEqual(data.job, \"leader\");",
+              "err": {},
+              "uuid": "f82aa6f0-7d22-4743-b53f-59d67bd7e418",
+              "parentUUID": "c473a901-a8f3-4d1d-982e-777afda5e0a8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f82aa6f0-7d22-4743-b53f-59d67bd7e418"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 413,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "37f3d175-bed5-44d1-af9e-3dfdac09159b",
+          "title": "Feature Reqres",
+          "fullFile": "C:\\ZMini BootCamp\\Sesi 7\\Sesi7_Hendra\\tests\\put.js",
+          "file": "\\tests\\put.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "PUT Reqres",
+              "fullTitle": "Feature Reqres PUT Reqres",
+              "timedOut": false,
+              "duration": 388,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await fetch(\"https://reqres.in/api/users/2\", {\n    method: \"PUT\",\n    headers: {\n       \"x-api-key\": \"reqres-free-v1\",\n       \"Content-Type\": \"application/json\",\n    },\n    body: JSON.stringify({\n        name: \"morpheus\",\n        job: \"zion resident\",\n    }),\n});\nconst data = await response.json();\nconsole.log(data);\n//bawaan\nassert.strictEqual(response.status, 200);\n//cek nama\nassert.strictEqual(data.name, \"morpheus\");\n            \n//cek job\nassert.strictEqual(data.job, \"zion resident\");",
+              "err": {},
+              "uuid": "8c36e91f-cafd-461f-b6cc-7d2b420af4db",
+              "parentUUID": "37f3d175-bed5-44d1-af9e-3dfdac09159b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8c36e91f-cafd-461f-b6cc-7d2b420af4db"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 388,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "bb80f78c-6b7c-49d1-80d8-1993ab6f000c",
+          "title": "Validasi JSON Schema",
+          "fullFile": "C:\\ZMini BootCamp\\Sesi 7\\Sesi7_Hendra\\tests\\validate.js",
+          "file": "\\tests\\validate.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should validate response against schema",
+              "fullTitle": "Validasi JSON Schema should validate response against schema",
+              "timedOut": false,
+              "duration": 61,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const responseData = {\n    name: \"Gajah Lucu\",\n    age: 60,\n    isActive: true,\n    };\nconst schema = {\n    \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n    \"title\": \"Generated schema for Root\",\n    \"type\": \"object\",\n    \"properties\": {\n        \"name\": { \n            \"type\": \"string\" \n        },\n        \"age\": { \n            \"type\": \"number\" \n        },\n        \"isActive\": { \n            \"type\": \"boolean\" \n        }\n        ,\n    },\n\"required\": [\n    \"name\", \n    \"age\", \n    \"isActive\",\n    ],\n    };\n    const validate = ajv.compile(schema);\n    const isValid = validate(responseData);\n\n    // Cetak error jika tidak valid\n    if (!isValid) {\nconsole.error(\"Schema validation errors:\", validate.errors);\n    }\n expect(isValid, JSON.stringify(validate.errors, null, 2)).to.be.true;",
+              "err": {},
+              "uuid": "b38df6f2-fc27-49e4-9712-0f69c364eabf",
+              "parentUUID": "bb80f78c-6b7c-49d1-80d8-1993ab6f000c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b38df6f2-fc27-49e4-9712-0f69c364eabf"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 61,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "4f99f2ba-22f0-4024-a990-f24e76670259",
+          "title": "Validasi JSON Schema",
+          "fullFile": "C:\\ZMini BootCamp\\Sesi 7\\Sesi7_Hendra\\tests\\validate1.js",
+          "file": "\\tests\\validate1.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should validate response against schema",
+              "fullTitle": "Validasi JSON Schema should validate response against schema",
+              "timedOut": false,
+              "duration": 26,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const responseData = {\nid: 2,\nemail: \"janet.weaver@reqres.in\",\nfirst_name: \"Janet\",\nlast_name: \"Weaver\",\n};\nconst schema = {\n    \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n    \"title\": \"Generated schema for Root\",\n    \"type\": \"object\",\n    \"properties\": \n    {\n        \"id\": { \n            \"type\": \"number\" \n        },\n        \"email\": { \n            \"type\": \"string\" \n        },\n        \"first_name\": { \n            \"type\": \"string\" \n        },\n        \"last_name\": {\n            \"type\": \"string\"\n        }\n    },\n    \"required\": [\n    \"id\", \n    \"email\", \n    \"first_name\",\n    \"last_name\",\n    ],\n    };\n\n    const validate = ajv.compile(schema);\n    const isValid = validate(responseData);\n\n    // Cetak error jika tidak valid\n    if (!isValid) {\nconsole.error(\"Schema validation errors:\", validate.errors);\n    }\n expect(isValid, JSON.stringify(validate.errors, null, 2)).to.be.true;",
+              "err": {},
+              "uuid": "8ac1da3a-f42b-4a43-8459-f14066977670",
+              "parentUUID": "4f99f2ba-22f0-4024-a990-f24e76670259",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8ac1da3a-f42b-4a43-8459-f14066977670"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 26,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.6.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
